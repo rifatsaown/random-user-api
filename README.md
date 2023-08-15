@@ -10,6 +10,8 @@ This is a simple Random User Api , where you can get random user data and also c
 - MongoDB
 
 ## Usage
+### Live Link : https://random-user-api-5nbv.onrender.com
+
 Get Request
 ```
 get: /api/v1/user/random - Get Random User Data 
