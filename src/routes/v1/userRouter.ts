@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteUser, getAllUser, getConfirm, getRandomUser } from '../../controller/userController';
+import { deleteUser, getAllUser, getConfirm, getRandomUser, saveRandomUser } from '../../controller/userController';
 
 const router = express.Router();
 
@@ -20,6 +20,9 @@ router.route("/random")
 router.route("/delete/:id")
         .delete(deleteUser);
 
+// POST Requests
+router.route("/save")
+        .post(saveRandomUser);
 
 
 

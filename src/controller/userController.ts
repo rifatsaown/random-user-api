@@ -47,19 +47,67 @@ export const getAllUser =async (req: Request , res: Response) => {
     }
 }
 
+/*------------ Save a random user ------------*/
+export const saveRandomUser =async (req: Request , res: Response) => {
+    // get data from user 
+    const data = req.body;
+    if(data){
+        const {gender,name,contact,address,photoUrl} = data;
+        if(gender && name && contact && address && photoUrl){
+            // Save Data to Database
+            const result =await (req as any).db?.collection("userCollection").insertOne(data);
+            if(result){
+                res.status(200).json({
+                    status: true,
+                    data: ["Data Saved Successfully",result]
+                })
+            }else{
+                res.status(404).json({
+                    status: false,
+                    data: ["Error in Saving Data"]
+                })
+            }
+        }else{
+            res.status(404).json({
+                status: false,
+                data: ["Some data missing to Save"]
+            })
+        }
+    }
+    else{
+        res.status(404).json({
+            status: false,
+            data: ["No Data Found to Save"]
+        })
+    }
+}
+
 /*------------ Delete a user ------------*/
 export const deleteUser =async (req: Request , res: Response) => {
+    // get id from user
     const id = req.params.id;
-    console.log(id);
-    
-    // Get Data From Database
-    const result =await (req as any).db?.collection("userCollection").deleteOne({_id: new ObjectId(id)});
-    if(result){
+
+    // Get all Data From Database
+    const alldata =await (req as any).db?.collection("userCollection").find().toArray();
+
+    //check if data is present or not
+    const data = alldata?.filter((item:any) => item._id == id);
+
+    //if data is present then delete it
+    if(data.length > 0){
+        const result =await (req as any).db?.collection("userCollection").deleteOne({_id: new ObjectId(id)});
+        if(result){
         res.status(200).json({
             status: true,
             data: ["Data Deleted Successfully",result]
         })
-    }else{
+        }else{
+            res.status(404).json({
+            status: false,
+            data: ["No Data Found to Delete"]
+            })
+        }
+    } else{ // if data is not present then send error
         res.status(404).json({
             status: false,
             data: ["No Data Found to Delete"]
