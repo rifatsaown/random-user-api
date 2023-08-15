@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 import userRoutes from './routes/v1/userRouter';
 
 /*--------------- Route MiddleWare ---------------*/
-app.use('/api/v1', userRoutes)
+app.use('/api/v1/user', userRoutes)
 
 
 export default app;

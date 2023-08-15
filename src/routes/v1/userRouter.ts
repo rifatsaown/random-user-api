@@ -1,16 +1,24 @@
 import express from 'express';
-import { getAllUser, getConfirm } from '../../controller/userController';
+import { deleteUser, getAllUser, getConfirm, getRandomUser } from '../../controller/userController';
 
 const router = express.Router();
 
 
-// all routes prefixed with /api/v1
+/*------ All routes prefixed with /api/v1/user ------*/
 
+// All GET Requests
 router.route("/")
         .get(getConfirm);
 
-router.route("/allusers")
+router.route("/all")
         .get(getAllUser);
+
+router.route("/random")
+        .get(getRandomUser);
+
+// Delete a user
+router.route("/delete/:id")
+        .delete(deleteUser);
 
 
 

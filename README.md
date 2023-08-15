@@ -11,8 +11,13 @@ This is a simple Random User Api , where you can get random user data and also c
 
 ## Usage
 ```
-/api/v1/allusers - Get all users data from database
-/api/v1/allusers?limit=10 - Get 10 users data from database
+get: /api/v1/user/random - Get Random User Data 
+
+get: /api/v1/user/all - Get all users data from database
+
+get: /api/v1/user/all?limit=10 - Get 10 users data from database (limit = any number)
+
+delete: /delete/:id - Delete User Data from database (id = user id)
 ```
 
 ## Author
