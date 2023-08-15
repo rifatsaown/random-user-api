@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 
+// getConfirm Function is for checking that api is working or not
 export const getConfirm =async (req: Request , res: Response) => {
     res.send("Api Version 1 is working")
 }
