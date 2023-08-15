@@ -1,7 +1,7 @@
-# This is a Starter Template for MVC Node.js Express.js MongoDB Application
+# Random User Api
 
 ## Description
-This is a simple MVC application using Node.js, Express.js and MongoDB. Use this as a starter template for your next project.
+This is a simple Random User Api , where you can get random user data and also can add user data to the database.
 
 ## Technologies
 - TypeScript
@@ -9,22 +9,11 @@ This is a simple MVC application using Node.js, Express.js and MongoDB. Use this
 - Express.js
 - MongoDB
 
-## Installation
-- Clone the repository
-- Run `yarn`
-- Run `yarn Start` to start the production server
-- Run `yarn Dev` to start the development server
-- Run `yarn Build` to build the project
-
 ## Usage
-- Create a `.env.local` file in the root directory
-- Add the following environment variables
-
 ```
-MONGODB_URI= (Your MongoDB URI)
-DB_NAME= (Your MongoDB Database Name)
+/api/v1/allusers - Get all users data from database
+/api/v1/allusers?limit=10 - Get 10 users data from database
 ```
-
 
 ## Author
 - [Md Rifat Hossen](https://rifatsaown.netlify.app/)
