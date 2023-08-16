@@ -10,9 +10,7 @@ const startServer = async () => {
             console.log(`Server is running on port ${port}`);
             connectToDatabase();
         });
-    }catch(err){
-        console.log(`Server Error: ${err}`);
-    }
+    }catch(err){console.log(`Server Error: ${err}`);}
 };
 
 startServer();
