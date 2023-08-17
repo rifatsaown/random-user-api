@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
     res.send(filePath);
   });
 
-/* Import all Routes */
+/*------- Import all Routes ------------*/
 import userRoutes from './routes/v1/userRouter';
 
 /*--------------- Route MiddleWare ---------------*/
