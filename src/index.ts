@@ -12,5 +12,4 @@ const startServer = async () => {
         });
     }catch(err){console.log(`Server Error: ${err}`);}
 };
-
 startServer();
