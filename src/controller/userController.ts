@@ -82,6 +82,48 @@ export const saveRandomUser =async (req: Request , res: Response) => {
     }
 }
 
+/*------------ Update a user ------------*/
+export const updateRandomUser =async (req: Request , res: Response) => {
+    // get id from user
+    const id = req.params.id;
+    const {gender , name, contact, address, photoUrl} = req.body;
+ 
+    // Get all Data From Database
+    const alldata =await (req as any).db?.collection("userCollection").find().toArray();
+
+    //check if data is present or not
+    const data = alldata?.filter((item:any) => item._id == id);
+    
+    //if user give data then update it
+    if(gender && name && contact && address && photoUrl){
+        if(data.length > 0){
+            const result =await (req as any).db?.collection("userCollection").updateOne({_id: new ObjectId(id)},{$set: req.body});
+            if(result){
+            res.status(200).json({
+                status: true,
+                data: ["Data Updated Successfully",result]
+            })
+            }else{
+                res.status(404).json({
+                status: false,
+                data: ["Error in Updating Data"]
+                })
+            }
+        } else{ // if data is not present then send error
+            res.status(404).json({
+                status: false,
+                data: ["No Data Found to Update"]
+            })
+        }
+    } else{ // if user not give data then send error
+        res.status(404).json({
+            status: false,
+            data: ["Some data missing to Update"]
+        })
+    }
+}
+
+
 /*------------ Delete a user ------------*/
 export const deleteUser =async (req: Request , res: Response) => {
     // get id from user
