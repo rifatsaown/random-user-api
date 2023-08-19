@@ -34,7 +34,7 @@ body: {
     "photoUrl": "https://example.com/photos/john_doe.jpg"
 }
 ```
-Patch Request
+Patch Request 
 ```
 patch: /update/:id - Update User Data to database (id = user id)
 
