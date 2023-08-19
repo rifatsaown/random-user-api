@@ -25,12 +25,27 @@ Post Request
 post: /api/v1/user/save - Add User Data to database
 
 In the body of the request you have to send data like this
+"body data type JSON"
 body: {
     "gender": "male",
     "name" : "Test Data For Save",
     "contact": "test@example.com",
     "address": "123 Main St, Cityville, USA",
     "photoUrl": "https://example.com/photos/john_doe.jpg"
+}
+```
+Patch Request (Update a single user data)
+```
+patch: /update/:id - Update User Data to database (id = user id)
+
+In the body of the request you have to send data like this (you can send any data you want to update)
+"body data type JSON"
+body: {
+    "gender": "male",
+    "name" : "Test Data For Update",
+    "contact": "test@example.com",
+    "address": "123 Main St, Cityville, USA",
+    "photoUrl": "https://example.com/photos/update.jpg"
 }
 ```
 Delete Request
